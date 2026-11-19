@@ -1,4 +1,4 @@
-# Keycloak realm capture — runbook (run on the machine WITH the data)
+# Keycloak realm capture — runbook (run on the machine WITH the data).
 
 > **Status:** not executed yet. The realm (`ai-portal`, orgs, users,
 > clients, audience mapper, password hashes) currently exists only in the
