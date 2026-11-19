@@ -4,7 +4,7 @@ How a login becomes a tamper-proof, self-carrying proof of *which tenant a reque
 
 > Related: [KEYCLOAK-REALM-CAPTURE.md](./KEYCLOAK-REALM-CAPTURE.md) covers how the realm configuration is captured and imported.
 
-## The 7 steps
+## The 7 steps.
 
 1. **Realm setup** — Keycloak starts with the `ai-portal` realm imported from committed files
 2. **Login redirect** — frontend sends the user to Keycloak to authenticate
