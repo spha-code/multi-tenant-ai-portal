@@ -1,6 +1,6 @@
 # multi-tenant-ai-portal
 
-Multi-tenant AI agent. Each user's agent can only access their own company's data.
+Multi-tenant AI agent. Each user's agent can only access their own company's data and tools.
 
 ## Stack
 
