@@ -1,0 +1,22 @@
+# CODEOWNERS — who is automatically requested to review which paths.
+# Docs: https://docs.github.com/repos/github/creating-cloning-and-archiving-repositories/about-code-owners
+#
+# Rules are evaluated top to bottom and the LAST matching pattern wins.
+# Owners must have write access, otherwise GitHub silently ignores them.
+
+# Fallback: everything not matched below
+*                          @spha-code
+
+# Backend: auth, tenant scoping, RLS
+/backend/                  @spha-code
+/backend/app/auth.py       @spha-code
+/backend/app/deps.py       @spha-code
+
+# Frontend: OIDC / token handling
+/frontend/                 @spha-code
+/frontend/src/auth/        @spha-code
+
+# Infra, CI, docs
+/docker-compose.yml        @spha-code
+/.github/                  @spha-code
+/docs/                     @spha-code
