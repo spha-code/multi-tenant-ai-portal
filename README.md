@@ -10,7 +10,7 @@ Multi-tenant AI agent. Each user's agent can only access their own company's dat
 | Database   | PostgreSQL 16 (tenant_id + Row-Level Security, pgvector provisioned) |
 | Backend    | FastAPI (Python)                       |
 | Frontend   | Vite + React + TypeScript (oidc-client-ts) |
-| AI agent   | planned — agentic chat composer (see [PLAN.md](PLAN.md)) |
+| AI agent   | planned - agentic chat composer (see [PLAN.md](PLAN.md) and [AGENT-TOOL-AUTHZ.md](docs/AGENT-TOOL-AUTHZ.md)) |
 | Local dev  | Docker Compose (frontend runs `npm run dev` in-container) |
 
 ## How the multi-tenancy works
