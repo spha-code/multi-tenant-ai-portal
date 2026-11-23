@@ -1,7 +1,8 @@
-# Security audit on every PR.
-# NOTE: intentionally strict — this starts RED (see branch PR description):
-# frontend currently has a known HIGH (zod <4.6.6) pending the planned
-# upgrade chore, and the workflow blocks MERGE on it until fixed.
+# Security audit on every PR — blocks merge on known HIGH+ advisories.
+#
+# This is NOT Dependabot. Dependabot (.github/dependabot.yml) only proposes
+# newer versions; it never runs npm audit or pip-audit. These jobs are the
+# actual vulnerability gate.
 name: audit
 
 on: [pull_request]
@@ -20,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install uv
-      # frozen sync from uv.lock, then audit the resolved environment
-      - run: uv sync --frozen --no-dev && uv run --with pip-audit pip-audit
+      # --locked (not --frozen): fail if uv.lock disagrees with pyproject.toml
+      # instead of silently installing the stale resolution.
+      - run: uv sync --locked --no-dev && uv run --with pip-audit pip-audit
         working-directory: backend

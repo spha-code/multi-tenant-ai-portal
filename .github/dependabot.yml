@@ -1,12 +1,17 @@
 version: 2
 updates:
-  # weekly PRs when new frontend versions exist (audit advisories included)
+  # Frontend: npm — package.json + package-lock.json.
   - package-ecosystem: "npm"
     directory: "/frontend"
     schedule:
       interval: "weekly"
-  # backend: pyproject.toml + uv.lock
-  - package-ecosystem: "pip"
+
+  # Backend: uv — pyproject.toml + uv.lock.
+  # Must be "uv", NOT "pip". The pip ecosystem reads the PEP 621 pins in
+  # pyproject.toml but has no concept of uv.lock, so it opens PRs that bump the
+  # pin and leave the lockfile on the old resolution. The "uv" ecosystem
+  # re-locks the full dependency graph instead.
+  - package-ecosystem: "uv"
     directory: "/backend"
     schedule:
       interval: "weekly"
